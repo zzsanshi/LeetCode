@@ -5,6 +5,7 @@
 using namespace std;
 
 // 由于本题已经预先有序，所以使用双指针的策略，左边扫面右边扫描
+
 vector<int> twoSum_v1(vector<int> &numbers, int target)
 {
     auto l = numbers.begin();

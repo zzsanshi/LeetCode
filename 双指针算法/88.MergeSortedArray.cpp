@@ -1,19 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-02-28 18:03:44
- * @LastEditTime: 2021-02-28 18:04:08
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /LeetCode/双指针算法/88.MergeSortedArray.cpp
- */
-/*
- * @Author: your name
- * @Date: 2021-02-28 16:36:09
- * @LastEditTime: 2021-02-28 18:03:44
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /LeetCode/双指针算法/88.MergeSortedArray.cpp
- */
 #include <vector>
 #include <array>
 #include <algorithm>
