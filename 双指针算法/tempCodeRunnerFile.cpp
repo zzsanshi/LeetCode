@@ -1,0 +1,1 @@
+return Palindrome(s.substr(i,j-i))||Palindrome(s.substr(i+1,j-i+1));
