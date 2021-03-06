@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 template<typename T>
@@ -86,19 +87,73 @@ void SelectionSort(vector<int> &arr,int left,int right){
     }
 }
 
-// ---归并排序---
-// 归并排序
 
-
-
-
-
-
-int main(){
-    vector<int> arr{1,3,5,2,4,2};
-    SelectionSort(arr,0,arr.size()-1);
-    cout<<arr;
-}
 // 堆排序
 // TODO
 
+// ---归并排序---
+// 归并排序
+void merge(vector<int> &arr,int left,int right){
+    int l = left;
+    vector<int> sorted;
+    int mid = (left+right)>>1;
+    int secondHead = mid + 1;
+    while(left<=mid&&secondHead<=right){
+        if(arr[left]<arr[secondHead]){
+            sorted.emplace_back(arr[left++]);
+        }
+        else{
+            sorted.emplace_back(arr[secondHead++]);
+        }
+    }
+    while(left<=mid){
+        sorted.emplace_back(arr[left++]);
+    }
+    while(arr[secondHead]<right){
+        sorted.emplace_back(arr[secondHead++]);
+    }
+    for(auto ai:sorted){
+        arr[l++] = ai;
+    }
+}
+
+void MergeSort(vector<int> &arr,int left,int right){
+    if(left<right){
+        int mid = (left+right)>>1;
+        MergeSort(arr,left,mid);
+        MergeSort(arr,mid+1,right);
+        merge(arr,left,right);
+    }
+}
+
+// ---非比较排序---
+// 计数排序
+void CountSort(vector<int> &arr,int left,int right){
+    int maxn=arr[0],minn=arr[0];
+    for(auto ai:arr){
+        if(ai>maxn) maxn=ai;
+        if(ai<minn) minn=ai;
+    }
+    vector<int> sorted(maxn-minn+1,0);
+    for(auto ai:arr){
+        sorted[ai-minn]++;
+    }
+    int pos=0;
+    for(int i=0;i<sorted.size();i++){
+        while(sorted[i]){
+            arr[pos++] = i+minn;
+            sorted[i]--;
+        }
+    }
+}
+// 桶排序
+// TODO
+
+// 基数排列
+// TODO 先排个位再排更高位，每次排序的时候都开10长度的数组就行
+
+int main(){
+    vector<int> arr{1,3,5,2,-1,4,2};
+    CountSort(arr,0,arr.size()-1);
+    cout<<arr<<endl;
+}
