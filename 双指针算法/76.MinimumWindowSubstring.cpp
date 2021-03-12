@@ -64,6 +64,7 @@ string minWindow(string s, string t) {
         while(window.find(s[j])==window.end()&&j<s.size()){
             j++;
         }
+        // 下面的j指的最后一个刚加入的位置
         // 这个加入是t里面需要的，j永远指向下一个要进行匹配的值
         window[s[j]]++;
         
@@ -72,6 +73,7 @@ string minWindow(string s, string t) {
             
             matched++;
         }
+        // 指向下一个
         j++;
         // 如果满足匹配，就要考虑如何减少长度
         while(matched==match){
@@ -80,6 +82,7 @@ string minWindow(string s, string t) {
                 minlen=j-i;
                 pos=i;
             }
+            // 如果i位置是需要的字符，则需要进一步判断
             if(window.find(s[i])!=window.end()){
                 if(window[s[i]]==1){
                     matched--;

@@ -25,7 +25,6 @@ int eraseOverlapIntervals(vector<vector<int>> &intervals)
         }
         else
         {
-            
             flag = intervals[i][1];
         }
     }

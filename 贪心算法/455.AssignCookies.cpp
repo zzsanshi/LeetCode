@@ -16,10 +16,12 @@ int findContentChildren_v1(vector<int> &g, vector<int> &s)
         cout << *gi << " " << *si << endl;
         if (*gi > *si)
         {
+            // 如果不能满足孩子的胃口，饼干移动到下一个
             si++;
         }
         else
         {
+            // 能够满足孩子的胃口，孩子、饼干后移，匹配数加1
             gi++;
             si++;
             sum++;
