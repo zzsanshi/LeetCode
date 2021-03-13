@@ -36,11 +36,12 @@ int findCircleNum_v0(vector<vector<int>>& isConnected) {
 }
 
 // 正确的递归思路是记录被访问节点
-void dfsVis(vector<vector<int>>& isConnected,vector<bool> &isVisited,int i){
-    isVisited[i] = true;
-    for(int idx=0;idx<isVisited.size();i++){
-        if(!isVisited[idx]&&isConnected[i][idx]){
-            dfsVis(isConnected,isVisited,idx);
+void dfsVis(vector<vector<int>>& isConnected,int i){
+    for(int idx=0;idx<isConnected.size();idx++){
+        cout<<i<<" "<<idx<<endl;
+        if(isConnected[i][idx]){
+            isConnected[i][idx] = 0;
+            dfsVis(isConnected,idx);
         }
     }
 }
@@ -49,17 +50,22 @@ int findCircleNum_v1(vector<vector<int>>& isConnected) {
     // 使用695学到的提取数组范围的写法,划掉,肯定是一样大的还算个啥...
     int h = isConnected.size();
     int grop = 0;
-    vector<bool> isVisited(h,false);
     for(int i=0;i<h;i++){
         // 只搜上半区减少搜索范围,在递归方法中也从i开始扫描
         // 这里用小于等于就不用判断孤岛了
         for(int j=0;j<=i;j++){
             if(isConnected[i][j]){
                 grop++;
-                dfsVis(isConnected,isVisited,i);
+                cout<<i<<endl;
+                dfsVis(isConnected,i);
             }
         }
     }
 
     return grop;
+}
+int main(){
+    vector<vector<int>> t{{1,1,0},{1,1,0},{0,0,1}};
+    cout<<findCircleNum_v1(t);
+    string s = "AAB";
 }
