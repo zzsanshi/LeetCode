@@ -38,7 +38,7 @@ int findCircleNum_v0(vector<vector<int>>& isConnected) {
 // 正确的递归思路是记录被访问节点
 void dfsVis(vector<vector<int>>& isConnected,int i){
     for(int idx=0;idx<isConnected.size();idx++){
-        if(i==idx) isConnected[i][i] = 0;
+        cout<<i<<" "<<idx<<endl;
         if(isConnected[i][idx]){
             isConnected[i][idx] = 0;
             dfsVis(isConnected,idx);
@@ -56,6 +56,7 @@ int findCircleNum_v1(vector<vector<int>>& isConnected) {
         for(int j=0;j<=i;j++){
             if(isConnected[i][j]){
                 grop++;
+                cout<<i<<endl;
                 dfsVis(isConnected,i);
             }
         }

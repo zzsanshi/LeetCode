@@ -7,7 +7,7 @@
 using namespace std;
 // 按照题的意思判断 在二分的基础上判断当tmpsum小于目标值时，后面的是不是大于目标值
 // 4 ms 5.8 MB
-int mySqrt_v1(int x)
+int mySqrt_v2(int x)
 {
     int l = 0, r = x;
     long tmpsum;

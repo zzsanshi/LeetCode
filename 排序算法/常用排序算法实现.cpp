@@ -156,4 +156,7 @@ int main(){
     vector<int> arr{1,3,5,2,-1,4,2};
     CountSort(arr,0,arr.size()-1);
     cout<<arr<<endl;
+    sort(arr.begin(),arr.end(),[](int x,int y){
+        return x;
+    });
 }

@@ -12,7 +12,7 @@ vector<string> &vector2string(vector<int> &queens,vector<string> &vs,int n){
     }
     return vs;
 }
-
+// 	8 ms	7.7 MB
 // clo：竖线是否存在  l左斜，r右斜，out：输出数组，搜索xindex坐标
 void backtrack(vector<bool> &clo,vector<bool> &l,vector<bool> &r,vector<vector<string>> &out,int xindex,vector<int> &queens){
     // 如果这里采用先判断后放入的策略，调用者就需要使用多点dfs的策略，太麻烦了
