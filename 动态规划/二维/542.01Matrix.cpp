@@ -42,28 +42,29 @@ vector<vector<int>> updateMatrix(vector<vector<int>>& matrix) {
 
 // 思路2 dp
 // 受到思路1中dfs可以利用坐标得出距离的结论
+// 96 ms 22.1 MB
 vector<vector<int>> updateMatrix(vector<vector<int>>& matrix) {
     int m = matrix.size(),n = matrix[0].size();
     vector<vector<int>> dp(m,vector<int>(n,0));
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
-            
+            if(matrix[i][j]){
+                dp[i][j] = INT32_MAX;
+            }
         }
     }
+    // 从左上到右下
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
-            if(i==0&&j==0){
-                dp[i][j] = matrix[i][j];
-            }
-            else if(i==0){
-                dp[i][j] = dp[i][j-1]+matrix[i][j];
-            }
-            else if(j==0){
-                dp[i][j] = dp[i-1][j]+matrix[i][j];
-            }
-            else{
-                dp[i][j] = max(dp[i-1][j],dp[i][j-1])+matrix[i][j];
-            }
+            if(i>0) dp[i][j] = min(dp[i][j],dp[i-1][j]+1);
+            if(j>0) dp[i][j] = min(dp[i][j],dp[i][j-1]+1);
+        }
+    }
+    // 从右下到左上
+    for(int i=m-1;i>=0;i++){
+        for(int j=n-1;j>=0;j++){
+            if(i<m-1) dp[i][j] = min(dp[i][j],dp[i+1][j]+1);
+            if(j<n-1) dp[i][j] = min(dp[i][j],dp[i][j+1]+1);
         }
     }
     return dp;
