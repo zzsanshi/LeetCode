@@ -46,7 +46,7 @@ vector<vector<string>> findLadders_v1(string beginWord, string endWord, vector<s
     return out;
 }
 
-// BFS
+// TODO BFS
 vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {
     vector<vector<string>> out;
     int n_wl = wordList.size();
@@ -63,7 +63,7 @@ vector<vector<string>> findLadders(string beginWord, string endWord, vector<stri
     }
     if(endidx==-1) return out;
 
-    vector<int> before(n_wl,-1);
+    vector<int> before(n_wl+1,-1);
     list<string> track;
     queue<int> queStr;
     queStr.push(n_wl);
