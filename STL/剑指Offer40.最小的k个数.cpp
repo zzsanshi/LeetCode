@@ -2,8 +2,10 @@
 #include<vector>
 #include<algorithm>
 using namespace std;
-
+// HOT
 vector<int> getLeastNumbers(vector<int>& arr, int k) {
+
+    if(k==0) return {};
     // 大根堆
     priority_queue<int,vector<int>,less<int>> bigheap;
     int i=0;

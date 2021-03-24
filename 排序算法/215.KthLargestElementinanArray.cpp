@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <queue>
 using namespace std;
+// HOT
 // 本以为结合快速排序与二分的思路应该可以一步到位，结果差太远
 // 48 ms 9.8 MB
 // 快速排序用来确定一个元素位置

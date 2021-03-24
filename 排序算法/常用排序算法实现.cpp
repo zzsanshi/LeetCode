@@ -30,7 +30,7 @@ void BubbleSort(vector<int> &arr,int begin,int end){
         }
     }    
 }
-
+// HOT
 // 快速排序 左闭右闭
 int Partition(vector<int> &arr,int left,int right){
     // 这里使用第一个值作为起始flag

@@ -11,7 +11,7 @@
 #include <algorithm>
 #include <iostream>
 using namespace std;
-
+// HOT
 struct ListNode
 {
     int val;
